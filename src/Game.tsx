@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
+import Questions from './Questions';
 
 interface GameProps {
   playerNames: string[];
 }
-
-const dares = [
-  'Do 10 pushups',
-  'Sing a song',
-  'Dance for 1 minute',
-  'Tell a joke',
-  'Do a silly walk',
-  // Add more dares as needed
-];
 
 const Game: React.FC<GameProps> = ({ playerNames }) => {
   const [currentPlayer, setCurrentPlayer] = useState<string | null>(null);
@@ -28,8 +20,8 @@ const Game: React.FC<GameProps> = ({ playerNames }) => {
   };
 
   const getRandomDare = () => {
-    const randomDare = dares[Math.floor(Math.random() * dares.length)];
-    setDare(randomDare);
+    const randomDare = Questions[Math.floor(Math.random() * Questions.length)];
+    setDare(randomDare.question);
   };
 
   const handleDareButton = () => {
